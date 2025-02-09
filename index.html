@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRADER AI - Bisaya Edition</title>
+    
+    <!-- External CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    
+    <!-- External JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <meta name="theme-color" content="#ff4444">
+    <link rel="icon" type="image/png" href="images/brader.jpg">
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-gray-200">
+    <!-- Intro Screen -->
+    <div class="intro-screen">
+        <div class="intro-container">
+            <img src="images/brader.jpg" alt="BRADER AI" class="intro-logo shadow-lg">
+            <div class="intro-progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="intro-message"></div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-900 text-white py-3 px-4 md:px-6 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center gap-2">
+            <img src="images/brader.jpg" alt="BRADER AI" class="header-icon">
+            <span class="font-bold text-xl">BRADER AI</span>
+        </div>
+        <div class="flex items-center">
+            <div class="dropdown">
+                <button class="nav-btn" type="button" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuDropdown">
+                    <li><button class="dropdown-item" id="newChatBtn">
+                        <i class="fas fa-plus me-2"></i>New Chat
+                    </button></li>
+                    <li><button class="dropdown-item" id="clearChatBtn">
+                        <i class="fas fa-trash me-2"></i>Clear Chat
+                    </button></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#aboutModal">
+                        <i class="fas fa-info-circle me-2"></i>About
+                    </button></li>
+                    <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#supportModal">
+                        <i class="fas fa-question-circle me-2"></i>Support
+                    </button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Updated Main Container Structure -->
+    <div class="main-container">
+        <div class="container mx-auto h-full px-2 md:px-4">
+            <div class="max-w-4xl mx-auto h-full flex flex-col">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full">
+                    <!-- Chat Header -->
+                    <div class="flex-none p-4 bg-gray-900 text-white text-center">
+                        <h2 class="text-xl font-bold">BRADER AI</h2>
+                        <p class="text-sm text-gray-300">Ang imong kaistorya matag kabuang.</p>
+                    </div>
+                    
+                    <!-- Improved Chat Container -->
+                    <div id="chatContainer" class="chat-container">
+                        <div class="message-wrapper">
+                            <!-- Messages will appear here -->
+                        </div>
+                    </div>
+
+                    <!-- Fixed Input Area -->
+                    <div class="input-area">
+                        <div class="flex gap-2 w-full">
+                            <input type="text" id="userInput" 
+                                class="flex-1 px-3 md:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500"
+                                placeholder="Isulti kung unsa imong gusto nga isulti... (e.g. Kumusta?)">
+                            <button id="sendButton" 
+                                class="px-4 md:px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors duration-300 flex items-center gap-2">
+                                <i class="fas fa-paper-plane"></i>
+                                <span class="hidden md:inline">Send</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div class="modal fade" id="aboutModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">About BRADER AI</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>BRADER AI is a Cebuano-Bisaya chatbot that specializes in informal and entertaining conversations.</p><br>
+                    <p>Version: 1.1</p>
+                    <p>Created by: Jcrist Vincent Orhen</p>
+                    <p>Current Time: <span id="modalDateTime"></span></p>
+                    <p>User: <span id="modalUserInfo"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Modal -->
+    <div class="modal fade" id="supportModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Support</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Para sa gusto mag support. Naara akoang mga information:</p><br>
+                    <ul>
+                        <li>Name: Jcrist Vincent Orhen</li>
+                        <li>Email: orhenjcrist@gmail.com</li>
+                        <li>Phone: +63 962 797 2598</li>
+                        <li>Available: 24/7</li><br>
+                        <li>TUNGOD NGA NALINGAW MAN KA NAKO, GUSTO NAKAG HATAG UG BISAN PISO SA AKOA? BUANGA KA E CHAT KO DALI! TUPLOKA NA AKOA NGALAN SA UBOS!</li><br>
+                        <li><a href="https://facebook.com/jcristorhen>">Jcrist Orhen</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="server.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
