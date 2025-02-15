@@ -86,8 +86,9 @@ SESSION INFO:
 // Add loading messages array
 const loadingMessages = [
     "Gipukaw si BRADER...",
-    "Nag kaon...",
-    "Nabusog na siya...",
+    "Nikaon aron di ma brader...",
+    "Naligo na si brader...",
+    "Nag ilis na si brader...",
     "Nag andam sa mga angay ika istorya nimo...",
     "Naa na siya, patay ka karon..."
 ];
